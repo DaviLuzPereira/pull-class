@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Site Fod@stico</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" />
+  <style>
+    :root {
+      --bg-light: #f5f5f5;
+      --text-light: #222;
+      --bg-dark: #111;
+      --text-dark: #f5f5f5;
+      --accent: #38bdf8;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.light {
+      background: var(--bg-light);
+      color: var(--text-light);
+    }
+
+    body.dark {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: var(--accent);
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    .toggle-theme {
+      background: none;
+      border: 2px solid #fff;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .toggle-theme:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    main {
+      padding: 6rem 2rem 3rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    section {
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    section:nth-child(1) { animation-delay: 0.2s; }
+    section:nth-child(2) { animation-delay: 0.4s; }
+    section:nth-child(3) { animation-delay: 0.6s; }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      opacity: 0.7;
+      font-size: 0.9rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body class="light">
+  <header>
+    <h1>Meu Site Incrível 🚀</h1>
+    <button class="toggle-theme">Modo Escuro</button>
+  </header>
+
+  <main>
+    <section>
+      <h2>Bem-vindo!</h2>
+      <p>Este é um site de exemplo <strong>fudido de bom</strong> criado com HTML, CSS e JS puro. Totalmente responsivo, com suporte a tema escuro, animações e uma estrutura top pra você começar seu projeto.</p>
+    </section>
+
+    <section>
+      <h2>Funcionalidades</h2>
+      <ul>
+        <li>✅ Dark/Light Mode com um clique</li>
+        <li>✅ Layout fluido e responsivo</li>
+        <li>✅ Animações suaves ao rolar</li>
+        <li>✅ Código limpo e comentado</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Personalize Fácil</h2>
+      <p>Troque as cores, fontes, ícones ou adicione novas seções como quiser. É só adaptar a estrutura HTML e brincar com os estilos no CSS!</p>
+    </section>
+  </main>
+
+  <footer>
+    Criado com 💻 por Você. Código 100% livre pra usar.
+  </footer>
+
+  <script>
+    const btn = document.querySelector('.toggle-theme');
+    const body = document.body;
+
+    btn.addEventListener('click', () => {
+      const isDark = body.classList.toggle('dark');
+      body.classList.toggle('light', !isDark);
+      btn.textContent = isDark ? 'Modo Claro' : 'Modo Escuro';
+    });
+  </script>
+</body>
+</html>
